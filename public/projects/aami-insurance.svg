@@ -8,5 +8,5 @@
   <rect width="640" height="512" fill="url(#g)"/>
   <rect x="240" y="160" width="160" height="140" rx="8" fill="#c4b5fd" opacity="0.2"/>
   <text x="320" y="380" text-anchor="middle" fill="#ede9fe" font-family="system-ui,sans-serif" font-size="22" font-weight="700">Home Insurance</text>
-  <text x="320" y="418" text-anchor="middle" fill="#a78bfa" font-family="system-ui,sans-serif" font-size="15">AAMI · Publicis Sapient</text>
+    <text x="320" y="418" text-anchor="middle" fill="#a78bfa" font-family="system-ui,sans-serif" font-size="15">AAMI - Publicis Sapient</text>
 </svg>
