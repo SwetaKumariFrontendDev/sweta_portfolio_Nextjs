@@ -1,26 +1,55 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #141414;
+  --foreground: #ffffff;
+  --netflix-red: #e50914;
+  --netflix-red-bright: #f40612;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-netflix-red: var(--netflix-red);
+  --color-netflix-redBright: var(--netflix-red-bright);
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-bebas), system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+}
+
+.row-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.row-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes hero-shift {
+  0%,
+  100% {
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  50% {
+    filter: hue-rotate(12deg) brightness(1.05);
+  }
+}
+
+.animate-hero-shift {
+  animation: hero-shift 18s ease-in-out infinite;
 }
