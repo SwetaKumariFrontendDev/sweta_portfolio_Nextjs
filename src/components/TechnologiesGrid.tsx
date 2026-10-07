@@ -1,26 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { technologies } from "@/data/technologies";
+import {
+  en,
+  technologies,
+  TECHNOLOGY_GRID_CONTAINER,
+  TECHNOLOGY_GRID_ITEM,
+} from "@/data/constants";
 import SectionHeading from "./SectionHeading";
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.05 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 16, scale: 0.96 },
-  show: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { type: "spring" as const, stiffness: 260, damping: 22 },
-  },
-};
 
 export default function TechnologiesGrid() {
   return (
@@ -31,11 +18,11 @@ export default function TechnologiesGrid() {
     >
       <div className="mx-auto max-w-[1920px] px-4 md:px-10">
         <SectionHeading id="technologies-heading" className="mb-6 md:mb-8">
-          Technologies
+          {en.labels.technologies}
         </SectionHeading>
 
         <motion.ul
-          variants={container}
+          variants={TECHNOLOGY_GRID_CONTAINER}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-60px" }}
@@ -44,7 +31,7 @@ export default function TechnologiesGrid() {
           {technologies.map((tech) => {
             const Icon = tech.Icon;
             return (
-              <motion.li key={tech.id} variants={item}>
+              <motion.li key={tech.id} variants={TECHNOLOGY_GRID_ITEM}>
                 <motion.div
                   whileHover={{
                     scale: 1.04,

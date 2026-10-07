@@ -3,24 +3,13 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { HiOutlineAcademicCap, HiOutlineBriefcase } from "react-icons/hi2";
-import type { PortfolioItem } from "@/data/portfolio";
+import { en, EXPERIENCE_ACCENT_BORDER, TIMELINE_COL, type PortfolioItem } from "@/data/constants";
 import SectionHeading from "./SectionHeading";
 import AtAGlance from "./AtAGlance";
 
 type Props = {
   items: PortfolioItem[];
 };
-
-const accentBorder: Record<string, string> = {
-  "exp-wf": "border-l-[#E50914]",
-  "exp-sungrow": "border-l-emerald-500",
-  "exp-ta": "border-l-slate-400",
-  "exp-publicis": "border-l-indigo-400",
-  "exp-retail": "border-l-cyan-500",
-  "edu-be": "border-l-amber-500",
-};
-
-const TIMELINE_COL = "grid-cols-[2.5rem_minmax(0,1fr)] md:grid-cols-[3rem_minmax(0,1fr)]";
 
 function isEducation(item: PortfolioItem) {
   return item.id.startsWith("edu-") || item.tags.includes("Education");
@@ -48,7 +37,7 @@ export default function ExperienceSection({ items }: Props) {
     >
       <div className="mx-auto max-w-[1920px] px-4 md:px-10">
         <SectionHeading id="experience-heading" className="mb-6 md:mb-8">
-          Experience & Education
+          {en.labels.experienceEducation}
         </SectionHeading>
 
         <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_260px] lg:gap-10 xl:grid-cols-[minmax(0,1fr)_280px] xl:gap-12">
@@ -69,7 +58,7 @@ export default function ExperienceSection({ items }: Props) {
                   className={`mb-4 grid ${TIMELINE_COL} gap-x-3 text-xs font-semibold uppercase tracking-widest text-white/45 md:gap-x-4`}
                 >
                   <span aria-hidden />
-                  <span>Education</span>
+                  <span>{en.labels.education}</span>
                 </p>
                 <ul className="space-y-4">
                   {education.map((item, index) => (
@@ -103,7 +92,7 @@ function ExperienceEntry({
   index: number;
   education?: boolean;
 }) {
-  const borderAccent = accentBorder[item.id] ?? "border-l-white/30";
+  const borderAccent = EXPERIENCE_ACCENT_BORDER[item.id] ?? "border-l-white/30";
   const Icon = education ? HiOutlineAcademicCap : HiOutlineBriefcase;
   const period = periodLabel(item);
   const company = companyLabel(item);
@@ -160,7 +149,7 @@ function ExperienceEntry({
             </ul>
           )}
           <span className="ml-auto text-xs font-semibold text-white/45 transition group-hover:text-netflix-red">
-            More info →
+            {en.labels.moreInfo} →
           </span>
         </div>
       </Link>

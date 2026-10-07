@@ -1,7 +1,9 @@
 import { ImageResponse } from "next/og";
+import { en } from "../data/en";
+import { profile } from "../data/constants";
 
 export const runtime = "edge";
-export const alt = "Sweta Kumari — Senior Frontend Engineer";
+export const alt = `${profile.name} — ${en.metadata.role}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -31,16 +33,16 @@ export default function OpenGraphImage() {
             marginBottom: 16,
           }}
         >
-          Portfolio
+          {en.labels.portfolio}
         </div>
         <div style={{ fontSize: 72, fontWeight: 800, lineHeight: 1.05, maxWidth: 900 }}>
-          Sweta Kumari
+          {profile.name}
         </div>
         <div style={{ fontSize: 32, marginTop: 20, color: "rgba(255,255,255,0.85)" }}>
-          Senior Frontend Engineer · React · Vue · Next.js
+          {en.metadata.openGraphSummary}
         </div>
         <div style={{ fontSize: 22, marginTop: 12, color: "rgba(255,255,255,0.55)" }}>
-          Almere, Netherlands
+          {profile.location}
         </div>
       </div>
     ),

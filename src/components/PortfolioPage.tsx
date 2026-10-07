@@ -7,9 +7,7 @@ import Footer from "./Footer";
 import TechnologiesGrid from "./TechnologiesGrid";
 import ExperienceSection from "./ExperienceSection";
 import AiWorkSection from "./AiWorkSection";
-import { rows } from "@/data/portfolio";
-
-const experienceRow = rows.find((r) => r.id === "experience");
+import { EXPERIENCE_ROW, rows } from "@/data/constants";
 
 export default function PortfolioPage() {
   return (
@@ -21,8 +19,8 @@ export default function PortfolioPage() {
           <AiWorkSection />
           {rows.map((row) => {
             if (row.id === "skills") return <TechnologiesGrid key={row.id} />;
-            if (row.id === "experience" && experienceRow) {
-              return <ExperienceSection key={row.id} items={experienceRow.items} />;
+            if (row.id === "experience" && EXPERIENCE_ROW) {
+              return <ExperienceSection key={row.id} items={EXPERIENCE_ROW.items} />;
             }
             return <Row key={row.id} row={row} />;
           })}

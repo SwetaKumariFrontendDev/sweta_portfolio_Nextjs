@@ -1,4 +1,11 @@
-import { heroFeatured, rows, type PortfolioItem, type PortfolioRow } from "@/data/portfolio";
+import {
+  en,
+  FEATURED_ROW_ID,
+  heroFeatured,
+  rows,
+  type PortfolioItem,
+  type PortfolioRow,
+} from "@/data/constants";
 
 export type ProjectWithContext = PortfolioItem & {
   rowTitle: string;
@@ -24,8 +31,8 @@ export function getProjectById(id: string): ProjectWithContext | undefined {
   if (id === heroFeatured.id) {
     return {
       ...heroFeatured,
-      rowTitle: "Featured",
-      rowId: "featured",
+      rowTitle: en.labels.featured,
+      rowId: FEATURED_ROW_ID,
     };
   }
   return undefined;

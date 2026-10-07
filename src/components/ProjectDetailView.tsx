@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { BRAND_MARK, en } from "@/data/constants";
 import type { ProjectWithContext } from "@/lib/projects";
 import { getRelatedProjects } from "@/lib/projects";
 import MediaCard from "./MediaCard";
@@ -26,10 +27,10 @@ export default function ProjectDetailView({ project }: Props) {
             className="flex items-center gap-2 text-sm font-semibold text-white/90 transition hover:text-white"
           >
             <BackIcon />
-            Back to Browse
+            {en.labels.backToBrowse}
           </Link>
           <Link href="/" className="font-display text-2xl font-bold text-netflix-red">
-            SK
+            {BRAND_MARK}
           </Link>
         </div>
       </header>
@@ -92,14 +93,14 @@ export default function ProjectDetailView({ project }: Props) {
                 className="inline-flex items-center gap-2 rounded bg-white px-6 py-2.5 text-sm font-bold text-black transition hover:bg-white/90"
               >
                 <PlayIcon />
-                View live experience
+                {en.labels.viewLiveExperience}
               </a>
             )}
             <Link
               href="/#contact"
               className="inline-flex items-center gap-2 rounded bg-white/20 px-6 py-2.5 text-sm font-semibold backdrop-blur-sm transition hover:bg-white/30"
             >
-              Contact me
+              {en.labels.contactMe}
             </Link>
           </motion.div>
           <div className="mt-5 flex flex-wrap gap-2">
@@ -123,7 +124,7 @@ export default function ProjectDetailView({ project }: Props) {
           className="grid gap-10 lg:grid-cols-[1fr_320px]"
         >
           <div>
-            <h2 className="text-xl font-semibold text-white">About this project</h2>
+            <h2 className="text-xl font-semibold text-white">{en.labels.aboutThisProject}</h2>
             <p className="mt-4 text-base leading-relaxed text-white/75 md:text-lg">
               {longText}
             </p>
@@ -131,7 +132,7 @@ export default function ProjectDetailView({ project }: Props) {
           {highlights.length > 0 && (
             <aside className="rounded-lg bg-white/5 p-6 ring-1 ring-white/10">
               <h3 className="text-sm font-semibold uppercase tracking-wide text-white/60">
-                Highlights
+                {en.labels.highlights}
               </h3>
               <ul className="mt-4 space-y-3">
                 {highlights.map((line) => (
@@ -149,7 +150,7 @@ export default function ProjectDetailView({ project }: Props) {
       {related.length > 0 && (
         <section className="border-t border-white/10 pb-16 pt-8">
           <h2 className="mb-4 px-4 text-lg font-semibold md:px-10 md:text-xl">
-            More in {project.rowTitle}
+            {en.labels.moreIn} {project.rowTitle}
           </h2>
           <div className="flex gap-2 overflow-x-auto px-4 pb-2 md:gap-3 md:px-10">
             {related.map((item, i) => (

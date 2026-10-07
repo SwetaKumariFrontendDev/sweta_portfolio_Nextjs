@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Bebas_Neue, Inter } from "next/font/google";
 import "./globals.css";
-import { profile } from "@/data/portfolio";
+import { en, profile, SITE_URL } from "@/data/constants";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -14,27 +14,24 @@ const bebas = Bebas_Neue({
   subsets: ["latin"],
 });
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: `${profile.name} | Senior Frontend Engineer`,
+    default: `${profile.name} | ${en.metadata.role}`,
     template: `%s | ${profile.name}`,
   },
   description: `${profile.headline} ${profile.bio}`,
   openGraph: {
-    title: `${profile.name} | Senior Frontend Engineer`,
+    title: `${profile.name} | ${en.metadata.role}`,
     description: profile.headline,
-    url: siteUrl,
-    siteName: `${profile.name} Portfolio`,
-    locale: "en_NL",
+    url: SITE_URL,
+    siteName: `${profile.name} ${en.labels.portfolio}`,
+    locale: en.metadata.locale,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.name} | Senior Frontend Engineer`,
+    title: `${profile.name} | ${en.metadata.role}`,
     description: profile.headline,
   },
   robots: { index: true, follow: true },

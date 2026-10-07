@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { profile } from "@/data/portfolio";
+import { en, profile } from "@/data/constants";
 import AtAGlance from "./AtAGlance";
 
 export default function Footer() {
@@ -16,7 +16,7 @@ export default function Footer() {
         >
           <div>
             <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
-              Ready for the next episode?
+              {en.labels.readyForNextEpisode}
             </h2>
             <p className="mt-4 max-w-lg text-white/70">{profile.headline}</p>
             <p className="mt-2 max-w-lg text-sm text-white/50">{profile.bio}</p>
@@ -25,7 +25,7 @@ export default function Footer() {
                 href={`mailto:${profile.email}`}
                 className="rounded bg-netflix-red px-6 py-3 text-sm font-bold text-white transition hover:bg-red-600"
               >
-                Email me
+                {en.labels.emailMe}
               </a>
               <a
                 href={profile.linkedin}
@@ -33,7 +33,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="rounded border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:border-white"
               >
-                LinkedIn
+                {en.labels.linkedin}
               </a>
               <a
                 href={profile.github}
@@ -41,7 +41,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="rounded border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:border-white"
               >
-                GitHub
+                {en.labels.github}
               </a>
               <a
                 href={profile.cvUrl}
@@ -49,7 +49,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="rounded border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:border-white"
               >
-                View CV (Canva)
+                {en.labels.viewCv}
               </a>
             </div>
             <p className="mt-6 text-sm text-white/45">
@@ -61,7 +61,7 @@ export default function Footer() {
           <AtAGlance showCta={false} />
         </motion.div>
         <p className="mt-14 border-t border-white/10 pt-8 text-center text-xs text-white/40">
-          © {new Date().getFullYear()} {profile.name}. Almere, Netherlands.
+          © {new Date().getFullYear()} {profile.name}. {profile.location}.
         </p>
       </div>
     </footer>

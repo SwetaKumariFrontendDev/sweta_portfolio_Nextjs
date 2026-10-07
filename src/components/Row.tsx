@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import type { PortfolioRow } from "@/data/portfolio";
+import { en, type PortfolioRow } from "@/data/constants";
 import MediaCard from "./MediaCard";
 import SectionHeading from "./SectionHeading";
 
@@ -31,7 +31,7 @@ export default function Row({ row }: Props) {
   };
 
   return (
-    <section id={row.id} className="relative mb-10 md:mb-14">
+    <section id={row.id} className="relative mb-10 md:mb-14 mt-10">
       <div className="mx-auto max-w-[1920px] px-4 md:px-10">
         <SectionHeading
           variant={isSampleWork ? "section" : "row"}
@@ -50,7 +50,7 @@ export default function Row({ row }: Props) {
             <button
               type="button"
               onClick={() => scroll("left")}
-              aria-label="Scroll left"
+              aria-label={en.labels.scrollLeft}
               className="absolute left-0 top-0 z-20 hidden h-[calc(100%-4rem)] w-10 items-center justify-center bg-gradient-to-r from-[#141414] via-[#141414]/80 to-transparent opacity-0 transition group-hover/row:opacity-100 md:flex"
             >
               <Chevron dir="left" />
@@ -60,7 +60,7 @@ export default function Row({ row }: Props) {
             <button
               type="button"
               onClick={() => scroll("right")}
-              aria-label="Scroll right"
+              aria-label={en.labels.scrollRight}
               className="absolute right-0 top-0 z-20 hidden h-[calc(100%-4rem)] w-10 items-center justify-center bg-gradient-to-l from-[#141414] via-[#141414]/80 to-transparent opacity-0 transition group-hover/row:opacity-100 md:flex"
             >
               <Chevron dir="right" />

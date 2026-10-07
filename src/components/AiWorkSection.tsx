@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { aiWork } from "@/data/portfolio";
+import { aiWork, en } from "@/data/constants";
 import { getProjectById } from "@/lib/projects";
 import SectionHeading from "./SectionHeading";
 
@@ -21,7 +21,7 @@ export default function AiWorkSection() {
         <SectionHeading id="ai-work-heading" className="mb-2 md:mb-3">
           {aiWork.sectionTitle}
         </SectionHeading>
-        <p className="mb-6 max-w-2xl text-sm text-white/55 md:mb-8 md:text-base">
+        <p className="mb-6 mt-10 text-sm text-white/55 md:mb-8 md:text-base">
           {aiWork.summary}
         </p>
 
@@ -39,7 +39,7 @@ export default function AiWorkSection() {
           <div className="relative grid gap-8 p-6 md:grid-cols-[1fr_280px] md:p-10 lg:grid-cols-[1fr_320px] lg:gap-12">
             <div>
               <span className="inline-block rounded bg-violet-600/30 px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest text-violet-200">
-                Featured
+                {en.labels.featured}
               </span>
               <h3 className="mt-3 font-display text-3xl leading-tight text-white md:text-4xl">
                 {aiWork.headline}
@@ -63,14 +63,14 @@ export default function AiWorkSection() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded bg-white px-5 py-2.5 text-sm font-bold text-black transition hover:bg-white/90"
                   >
-                    Try live app
+                    {en.labels.tryLiveApp}
                   </a>
                 )}
                 <Link
                   href={`/work/${project.id}`}
                   className="inline-flex items-center gap-2 rounded border border-white/25 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/15"
                 >
-                  Case study
+                  {en.labels.caseStudy}
                 </Link>
               </div>
               <div className="mt-5 flex flex-wrap gap-2">

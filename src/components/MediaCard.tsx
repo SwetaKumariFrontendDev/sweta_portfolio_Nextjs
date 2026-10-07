@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import type { PortfolioItem } from "@/data/portfolio";
+import { en, type PortfolioItem } from "@/data/constants";
 
 type Props = {
   item: PortfolioItem;
@@ -22,7 +22,7 @@ function monogram(item: PortfolioItem) {
 
 function domainLabel(item: PortfolioItem) {
   if (item.tags[0]) return item.tags[0];
-  return item.subtitle.split("·")[0]?.trim() ?? "Project";
+  return item.subtitle.split("·")[0]?.trim() ?? en.labels.project;
 }
 
 export default function MediaCard({ item, index, variant = "landscape" }: Props) {
@@ -112,7 +112,7 @@ export default function MediaCard({ item, index, variant = "landscape" }: Props)
             <p className="line-clamp-3 text-[11px] leading-relaxed text-white/70">
               {item.description}
             </p>
-            <p className="mt-2 text-[10px] font-semibold text-netflix-redBright">Open project →</p>
+            <p className="mt-2 text-[10px] font-semibold text-netflix-redBright">{en.labels.openProject} →</p>
           </div>
         </motion.div>
       </Link>

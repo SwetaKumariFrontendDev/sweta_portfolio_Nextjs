@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { heroFeatured, profile } from "@/data/portfolio";
+import { en, heroFeatured, profile } from "@/data/constants";
 export default function Hero() {
   const f = heroFeatured;
 
@@ -75,14 +75,14 @@ export default function Hero() {
               className="inline-flex items-center gap-2 rounded bg-white px-6 py-2.5 text-sm font-bold text-black transition hover:bg-white/90"
             >
               <PlayIcon />
-              View work
+              {en.labels.viewWork}
             </a>
             <a
               href="#contact"
               className="inline-flex items-center gap-2 rounded bg-white/20 px-6 py-2.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/30"
             >
               <InfoIcon />
-              Contact
+              {en.navigation.contact}
             </a>
             <a
               href={profile.cvUrl}
@@ -90,7 +90,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded border border-white/30 px-6 py-2.5 text-sm font-semibold text-white transition hover:border-white"
             >
-              Download CV
+              {en.labels.downloadCv}
             </a>
           </motion.div>
           <motion.div

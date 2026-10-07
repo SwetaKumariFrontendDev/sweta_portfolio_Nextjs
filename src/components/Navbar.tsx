@@ -1,16 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { profile } from "@/data/portfolio";
-
-const links = [
-  { label: "Home", href: "#top" },
-  { label: "AI", href: "#ai-work" },
-  { label: "Work", href: "#sample-work" },
-  { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" },
-  { label: "Contact", href: "#contact" },
-];
+import { BRAND_MARK, en, NAV_LINKS, profile } from "@/data/constants";
 
 export default function Navbar() {
   const { scrollY } = useScroll();
@@ -33,14 +24,14 @@ export default function Navbar() {
       <nav className="mx-auto flex h-16 max-w-[1920px] items-center justify-between px-4 md:px-10">
         <a href="#top" className="flex items-center gap-2">
           <span className="font-display text-2xl font-bold tracking-tight text-netflix-red md:text-3xl">
-            SK
+            {BRAND_MARK}
           </span>
           <span className="hidden text-sm font-semibold text-white/90 sm:inline">
             {profile.name}
           </span>
         </a>
         <ul className="hidden items-center gap-6 md:flex">
-          {links.map((link) => (
+          {NAV_LINKS.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
@@ -55,7 +46,7 @@ export default function Navbar() {
           href="#contact"
           className="rounded bg-netflix-red px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-red-600 md:text-sm"
         >
-          Hire Me
+          {en.navigation.hireMe}
         </a>
       </nav>
     </motion.header>
